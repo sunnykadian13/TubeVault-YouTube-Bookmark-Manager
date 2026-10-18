@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TubeVault dashboard</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="lib/base.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="icons/icon48.png" alt="" width="26" height="26">
+        <span>TubeVault</span>
+      </div>
+      <nav aria-label="Collections">
+        <div id="nav-all"></div>
+        <div class="nav-heading">
+          <span>Categories</span>
+          <button id="add-category" class="icon-btn" type="button" aria-label="New category" title="New category"></button>
+        </div>
+        <div id="nav-categories"></div>
+      </nav>
+      <div class="sidebar-foot">
+        <button id="import-btn" class="btn btn-sm btn-block" type="button">Import</button>
+        <button id="export-btn" class="btn btn-sm btn-block" type="button">Export</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="toolbar">
+        <div class="search">
+          <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 1 0 0-14z M20 20l-3.5-3.5"/></svg>
+          <input id="search" class="input" type="search" placeholder="Search titles and notes  (press / to focus)" aria-label="Search saved videos" autocomplete="off">
+        </div>
+        <select id="sort" class="select" aria-label="Sort videos">
+          <option value="newest">Newest saved</option>
+          <option value="oldest">Oldest saved</option>
+          <option value="alpha">Title A to Z</option>
+        </select>
+      </div>
+
+      <header class="view-head">
+        <div>
+          <h1 id="view-title">All videos</h1>
+          <p id="view-sub" class="view-sub"></p>
+        </div>
+        <div id="view-actions" class="view-actions"></div>
+      </header>
+
+      <div id="loading" class="grid" aria-hidden="true"></div>
+
+      <section id="recent-section" hidden>
+        <h2 class="section-title">Recently saved</h2>
+        <div id="recent" class="recent"></div>
+      </section>
+
+      <section id="library" hidden>
+        <h2 id="grid-title" class="section-title" hidden>All videos</h2>
+        <div id="grid" class="grid"></div>
+        <div id="more-wrap" class="more-wrap" hidden><button id="more" class="btn" type="button"></button></div>
+        <div id="empty"></div>
+      </section>
+    </main>
+  </div>
+
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
